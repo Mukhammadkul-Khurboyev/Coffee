@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="uz" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Coffee — Coffee Shop in Tashkent</title>
+    <meta name="description"
+        content="Space Coffee in Tashkent — quality coffee, delicious desserts and a cozy atmosphere. Visit us at Karatash 66 or call +998 99 099 55 35.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Space Coffee — Coffee Shop in Tashkent">
+    <meta property="og:description"
+        content="Quality coffee, delicious desserts and a cozy atmosphere in the heart of Tashkent.">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: {
+                            50: '#FDFBF7',
+                            100: '#F5EBE0',
+                            200: '#E3D5C8',
+                            300: '#D5BDAF',
+                            400: '#B8977E',
+                            500: '#967259',
+                            600: '#73523B',
+                            700: '#543D2B',
+                            800: '#3A291D',
+                            900: '#231811',
+                            950: '#140E0A',
+                        },
+                        cream: {
+                            DEFAULT: '#FAF6F0',
+                            dark: '#1E1915'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS for subtle animations and polish -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-editorial {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(115, 82, 59, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(115, 82, 59, 0.2);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(115, 82, 59, 0.4);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-coffee-50 text-coffee-900 dark:bg-coffee-950 dark:text-coffee-100 antialiased selection:bg-coffee-300 dark:selection:bg-coffee-700">
+
+    <!-- Navigation Bar -->
+    <header id="navbar"
+        class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-coffee-50/80 dark:bg-coffee-950/80 backdrop-blur-md border-b border-coffee-200/50 dark:border-coffee-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div
+                    class="w-10 h-10 rounded-full bg-coffee-800 dark:bg-coffee-200 flex items-center justify-center text-coffee-50 dark:text-coffee-900 transition-transform group-hover:scale-105">
+                    <i class="fa-solid fa-mug-hot text-lg"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-editorial text-xl font-bold tracking-wider">SPACE COFFEE</span>
+                    <span class="text-[10px] tracking-widest uppercase opacity-70">Tashkent</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
+                <a href="#hero" data-i18n="nav_home" class="hover:text-coffee-500 transition-colors">Home</a>
+                <a href="#about" data-i18n="nav_about" class="hover:text-coffee-500 transition-colors">About</a>
+                <a href="#menu" data-i18n="nav_menu" class="hover:text-coffee-500 transition-colors">Menu</a>
+                <a href="#reviews" data-i18n="nav_reviews" class="hover:text-coffee-500 transition-colors">Reviews</a>
+                <a href="#gallery" data-i18n="nav_gallery" class="hover:text-coffee-500 transition-colors">Gallery</a>
+                <a href="#location" data-i18n="nav_location"
+                    class="hover:text-coffee-500 transition-colors">Location</a>
+            </nav>
+
+            <!-- Actions (Cart, Lang, Theme) -->
+            <div class="flex items-center gap-3 sm:gap-4">
+                <!-- Language Selector -->
+                <div class="relative">
+                    <button id="lang-menu-btn"
+                        class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-coffee-200 dark:border-coffee-800 text-xs font-semibold hover:border-coffee-400 transition-all bg-white/50 dark:bg-coffee-900/50">
+                        <span id="current-lang-flag">🇺🇿</span>
+                        <span id="current-lang-code" class="uppercase">UZ</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] opacity-60"></i>
+                    </button>
+                    <div id="lang-dropdown"
+                        class="hidden absolute right-0 mt-2 w-32 rounded-2xl bg-white dark:bg-coffee-900 shadow-xl border border-coffee-200 dark:border-coffee-800 py-2 z-50">
+                        <button onclick="setLanguage('uz')"
+                            class="w-full text-left px-4 py-2 text-xs flex items-center gap-2 hover:bg-coffee-100 dark:hover:bg-coffee-800 transition-colors">
+                            <span>🇺🇿</span> O'zbekcha
+                        </button>
+                        <button onclick="setLanguage('en')"
+                            class="w-full text-left px-4 py-2 text-xs flex items-center gap-2 hover:bg-coffee-100 dark:hover:bg-coffee-800 transition-colors">
+                            <span>🇬🇧</span> English
+                        </button>
+                        <button onclick="setLanguage('ru')"
+                            class="w-full text-left px-4 py-2 text-xs flex items-center gap-2 hover:bg-coffee-100 dark:hover:bg-coffee-800 transition-colors">
+                            <span>🇷🇺</span> Русский
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle"
+                    class="w-9 h-9 rounded-full border border-coffee-200 dark:border-coffee-800 flex items-center justify-center hover:border-coffee-400 transition-all bg-white/50 dark:bg-coffee-900/50 text-coffee-800 dark:text-coffee-200"
+                    aria-label="Toggle theme">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:block"></i>
+                </button>
+
+                <!-- Cart Button -->
+                <button id="cart-btn"
+                    class="relative px-4 py-2 rounded-full bg-coffee-800 text-coffee-50 dark:bg-coffee-100 dark:text-coffee-900 flex items-center gap-2 text-xs font-semibold hover:bg-coffee-700 dark:hover:bg-white transition-all shadow-sm">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="hidden sm:inline" data-i18n="nav_cart">Cart</span>
+                    <span id="cart-counter"
+                        class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-amber-600 text-white rounded-full text-[10px] font-bold flex items-center justify-center border-2 border-coffee-50 dark:border-coffee-950 transition-transform scale-0">0</span>
+                </button>
+
+                <!-- Mobile Menu Hamburger -->
+                <button id="mobile-menu-btn"
+                    class="lg:hidden w-10 h-10 rounded-full border border-coffee-200 dark:border-coffee-800 flex items-center justify-center text-coffee-800 dark:text-coffee-200 hover:border-coffee-400"
+                    aria-label="Open mobile menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden">
+        <div class="absolute right-0 top-0 bottom-0 w-4/5 max-w-sm bg-coffee-50 dark:bg-coffee-950 p-6 flex flex-col justify-between shadow-2xl transform translate-x-full transition-transform duration-300"
+            id="mobile-menu-drawer">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-coffee-200 dark:border-coffee-800">
+                    <div class="flex items-center gap-2">
+                        <div
+                            class="w-8 h-8 rounded-full bg-coffee-800 dark:bg-coffee-200 flex items-center justify-center text-coffee-50 dark:text-coffee-900">
+                            <i class="fa-solid fa-mug-hot text-sm"></i>
+                        </div>
+                        <span class="font-editorial font-bold text-lg">SPACE COFFEE</span>
+                    </div>
+                    <button id="mobile-menu-close"
+                        class="w-9 h-9 rounded-full border border-coffee-200 dark:border-coffee-800 flex items-center justify-center text-coffee-800 dark:text-coffee-200">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-6 mt-8 text-lg font-medium">
+                    <a href="#hero" class="mobile-nav-link hover:text-coffee-500 transition-colors"
+                        data-i18n="nav_home">Home</a>
+                    <a href="#about" class="mobile-nav-link hover:text-coffee-500 transition-colors"
+                        data-i18n="nav_about">About</a>
+                    <a href="#menu" class="mobile-nav-link hover:text-coffee-500 transition-colors"
+                        data-i18n="nav_menu">Menu</a>
+                    <a href="#reviews" class="mobile-nav-link hover:text-coffee-500 transition-colors"
+                        data-i18n="nav_reviews">Reviews</a>
+                    <a href="#gallery" class="mobile-nav-link hover:text-coffee-500 transition-colors"
+                        data-i18n="nav_gallery">Gallery</a>
+                    <a href="#location" class="mobile-nav-link hover:text-coffee-500 transition-colors"
+                        data-i18n="nav_location">Location</a>
+                </nav>
+            </div>
+            <div class="pt-6 border-t border-coffee-200 dark:border-coffee-800 text-xs opacity-70">
+                <p>Karatash massif, 66, Tashkent</p>
+                <p class="mt-1">+998 99 099 55 35</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+        <div
+            class="absolute inset-0 z-0 opacity-15 dark:opacity-10 bg-[radial-gradient(#967259_1px,transparent_1px)] [background-size:16px_16px]">
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 flex flex-col items-start text-left">
+                <!-- Status badge -->
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-coffee-200/50 dark:bg-coffee-800/50 border border-coffee-300 dark:border-coffee-700 text-xs font-medium mb-6">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span data-i18n="hero_status">Open daily until 00:00</span>
+                </div>
+
+                <h1 class="font-editorial text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
+                    <span data-i18n="hero_title_1">Your Space for</span> <br>
+                    <span class="italic text-coffee-600 dark:text-coffee-400" data-i18n="hero_title_2">Great
+                        Coffee</span>
+                </h1>
+
+                <p class="text-lg sm:text-xl opacity-80 max-w-xl font-light mb-8 leading-relaxed"
+                    data-i18n="hero_subtitle">
+                    Coffee, desserts and good moments in the heart of Tashkent.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+                    <a href="#menu"
+                        class="w-full sm:w-auto px-8 py-4 rounded-full bg-coffee-800 hover:bg-coffee-700 dark:bg-coffee-100 dark:hover:bg-white dark:text-coffee-900 text-coffee-50 font-semibold text-sm transition-all text-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                        data-i18n="hero_cta_menu">
+                        View Menu
+                    </a>
+                    <a href="#location"
+                        class="w-full sm:w-auto px-8 py-4 rounded-full border border-coffee-300 dark:border-coffee-700 hover:border-coffee-500 font-semibold text-sm transition-all text-center"
+                        data-i18n="hero_cta_directions">
+                        Get Directions
+                    </a>
+                </div>
+
+                <div
+                    class="grid grid-cols-3 gap-6 mt-12 pt-12 border-t border-coffee-200 dark:border-coffee-800 w-full">
+                    <div>
+                        <div class="font-editorial text-2xl font-bold">4.8 / 5</div>
+                        <div class="text-xs opacity-70 mt-1" data-i18n="stat_rating">73 Reviews</div>
+                    </div>
+                    <div>
+                        <div class="font-editorial text-2xl font-bold">100%</div>
+                        <div class="text-xs opacity-70 mt-1" data-i18n="stat_beans">Specialty Beans</div>
+                    </div>
+                    <div>
+                        <div class="font-editorial text-2xl font-bold">00:00</div>
+                        <div class="text-xs opacity-70 mt-1" data-i18n="stat_hours">Daily Closing</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image Banner -->
+            <div class="lg:col-span-5 relative">
+                <div
+                    class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-coffee-900 aspect-[4/5] group">
+                    <img src="https://avatars.mds.yandex.net/get-altay/14920824/2a00000194c35d93fc9b08423bb57f40d136/XXXL"
+                        alt="Espresso coffee preparation"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        onerror="this.src='https://placehold.co/800x1000/3A291D/F5EBE0?text=Space+Coffee'">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-coffee-950/60 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
+                        <span class="text-xs uppercase tracking-widest text-amber-200 font-semibold mb-1"
+                            data-i18n="hero_badge_art">Artisanal Craft</span>
+                        <h3 class="font-editorial text-2xl font-bold" data-i18n="hero_badge_title">Brewed with passion
+                        </h3>
+                    </div>
+                </div>
+                <!-- Floating Card Accent -->
+                <div
+                    class="absolute -bottom-6 -left-6 bg-white dark:bg-coffee-900 p-5 rounded-2xl shadow-xl border border-coffee-200 dark:border-coffee-800 hidden sm:flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-full bg-amber-500/10 text-amber-600 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs opacity-70" data-i18n="floating_location">Location</div>
+                        <div class="font-semibold text-sm">Karatash massif, 66</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Space Coffee Section -->
+    <section
+        class="py-20 bg-coffee-100/50 dark:bg-coffee-900/30 border-y border-coffee-200/50 dark:border-coffee-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span
+                    class="text-xs uppercase tracking-widest text-coffee-600 dark:text-coffee-400 font-semibold mb-3 block"
+                    data-i18n="features_tag">The Experience</span>
+                <h2 class="font-editorial text-3xl sm:text-4xl font-bold" data-i18n="features_title">Why Space Coffee
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div
+                    class="bg-white dark:bg-coffee-900 p-8 rounded-3xl shadow-sm border border-coffee-200/60 dark:border-coffee-800/60 transition-transform hover:-translate-y-1">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-coffee-100 dark:bg-coffee-800 text-coffee-700 dark:text-coffee-300 flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-mug-saucer"></i>
+                    </div>
+                    <h3 class="font-editorial text-xl font-bold mb-3" data-i18n="feat_1_title">Specialty Coffee</h3>
+                    <p class="text-sm opacity-75 leading-relaxed" data-i18n="feat_1_desc">Carefully sourced beans
+                        roasted to perfection, extracted with precision for exquisite flavor profiles.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div
+                    class="bg-white dark:bg-coffee-900 p-8 rounded-3xl shadow-sm border border-coffee-200/60 dark:border-coffee-800/60 transition-transform hover:-translate-y-1">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-coffee-100 dark:bg-coffee-800 text-coffee-700 dark:text-coffee-300 flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-cake-candles"></i>
+                    </div>
+                    <h3 class="font-editorial text-xl font-bold mb-3" data-i18n="feat_2_title">Fresh Desserts</h3>
+                    <p class="text-sm opacity-75 leading-relaxed" data-i18n="feat_2_desc">Handcrafted cakes, crispy
+                        croissants, and sweet treats baked fresh daily to complement your brew.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div
+                    class="bg-white dark:bg-coffee-900 p-8 rounded-3xl shadow-sm border border-coffee-200/60 dark:border-coffee-800/60 transition-transform hover:-translate-y-1">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-coffee-100 dark:bg-coffee-800 text-coffee-700 dark:text-coffee-300 flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-couch"></i>
+                    </div>
+                    <h3 class="font-editorial text-xl font-bold mb-3" data-i18n="feat_3_title">Cozy Atmosphere</h3>
+                    <p class="text-sm opacity-75 leading-relaxed" data-i18n="feat_3_desc">Warm lighting, comfortable
+                        seating, and a serene ambiance designed for work, talk, or quiet moments.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div
+                    class="bg-white dark:bg-coffee-900 p-8 rounded-3xl shadow-sm border border-coffee-200/60 dark:border-coffee-800/60 transition-transform hover:-translate-y-1">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-coffee-100 dark:bg-coffee-800 text-coffee-700 dark:text-coffee-300 flex items-center justify-center text-xl mb-6">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <h3 class="font-editorial text-xl font-bold mb-3" data-i18n="feat_4_title">Open Until Midnight</h3>
+                    <p class="text-sm opacity-75 leading-relaxed" data-i18n="feat_4_desc">Your welcoming evening
+                        sanctuary in Tashkent, open daily until 00:00 for late-night coffee cravings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 relative">
+                    <div class="grid grid-cols-12 gap-4">
+                        <div class="col-span-8 rounded-3xl overflow-hidden shadow-xl aspect-[4/3]">
+                            <img src="https://avatars.mds.yandex.net/get-altay/14578051/2a0000019571f7185c85a4b8c64f96c4f343/XXXL"
+                                alt="Coffee shop interior" class="w-full h-full object-cover"
+                                onerror="this.src='https://placehold.co/800x600/3A291D/F5EBE0?text=Interior'">
+                        </div>
+                        <div class="col-span-4 rounded-3xl overflow-hidden shadow-xl aspect-[3/4] translate-y-8">
+                            <img src="https://avatars.mds.yandex.net/get-altay/15352901/2a00000194c35d978cce22b88d13b8330e0c/XXXL"
+                                alt="Latte art" class="w-full h-full object-cover"
+                                onerror="this.src='https://placehold.co/600x800/3A291D/F5EBE0?text=Latte'">
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 lg:pl-8 flex flex-col items-start">
+                    <span
+                        class="text-xs uppercase tracking-widest text-coffee-600 dark:text-coffee-400 font-semibold mb-3"
+                        data-i18n="about_tag">Our Story</span>
+                    <h2 class="font-editorial text-3xl sm:text-5xl font-bold mb-6 leading-tight"
+                        data-i18n="about_title">Crafted for coffee lovers in Tashkent</h2>
+                    <p class="text-base opacity-80 leading-relaxed mb-6" data-i18n="about_desc_1">
+                        Founded with a deep passion for exceptional coffee culture, Space Coffee was created to be a
+                        sanctuary in the bustling heart of Tashkent. Every cup we serve reflects our dedication to
+                        quality, from bean selection to the final pour.
+                    </p>
+                    <p class="text-base opacity-80 leading-relaxed mb-8" data-i18n="about_desc_2">
+                        Whether you are meeting friends, seeking a quiet corner to read, or grabbing a swift morning
+                        espresso, our doors at Karatash 66 are open to welcome you into our warm and inviting space.
+                    </p>
+                    <div class="flex items-center gap-6">
+                        <div class="flex flex-col">
+                            <span
+                                class="font-editorial text-3xl font-bold text-coffee-700 dark:text-coffee-300">73+</span>
+                            <span class="text-xs uppercase tracking-wider opacity-70"
+                                data-i18n="about_stat_reviews">Five Star Reviews</span>
+                        </div>
+                        <div class="w-px h-12 bg-coffee-200 dark:bg-coffee-800"></div>
+                        <div class="flex flex-col">
+                            <span
+                                class="font-editorial text-3xl font-bold text-coffee-700 dark:text-coffee-300">00:00</span>
+                            <span class="text-xs uppercase tracking-wider opacity-70" data-i18n="about_stat_open">Open
+                                Daily</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu"
+        class="py-24 bg-coffee-100/40 dark:bg-coffee-900/20 border-t border-coffee-200/50 dark:border-coffee-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span
+                    class="text-xs uppercase tracking-widest text-coffee-600 dark:text-coffee-400 font-semibold mb-3 block"
+                    data-i18n="menu_tag">Our Offerings</span>
+                <h2 class="font-editorial text-3xl sm:text-5xl font-bold mb-4" data-i18n="menu_title">Explore Our Menu
+                </h2>
+                <p class="text-sm opacity-75" data-i18n="menu_subtitle">Discover hand-crafted coffee drinks, specialty
+                    teas, and artisanal pastries.</p>
+            </div>
+
+            <!-- Menu Category Tabs -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+                <button onclick="filterMenu('all')"
+                    class="menu-tab active px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-coffee-800 text-coffee-50 dark:bg-coffee-100 dark:text-coffee-900 shadow-sm"
+                    data-category="all" data-i18n="cat_all">All</button>
+                <button onclick="filterMenu('coffee')"
+                    class="menu-tab px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-white dark:bg-coffee-900 border border-coffee-200 dark:border-coffee-800 hover:border-coffee-400"
+                    data-category="coffee" data-i18n="cat_coffee">Coffee</button>
+                <button onclick="filterMenu('cold')"
+                    class="menu-tab px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-white dark:bg-coffee-900 border border-coffee-200 dark:border-coffee-800 hover:border-coffee-400"
+                    data-category="cold" data-i18n="cat_cold">Cold Coffee</button>
+                <button onclick="filterMenu('tea')"
+                    class="menu-tab px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-white dark:bg-coffee-900 border border-coffee-200 dark:border-coffee-800 hover:border-coffee-400"
+                    data-category="tea" data-i18n="cat_tea">Tea</button>
+                <button onclick="filterMenu('desserts')"
+                    class="menu-tab px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-white dark:bg-coffee-900 border border-coffee-200 dark:border-coffee-800 hover:border-coffee-400"
+                    data-category="desserts" data-i18n="cat_desserts">Desserts</button>
+                <button onclick="filterMenu('pastries')"
+                    class="menu-tab px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-white dark:bg-coffee-900 border border-coffee-200 dark:border-coffee-800 hover:border-coffee-400"
+                    data-category="pastries" data-i18n="cat_pastries">Pastries</button>
+                <button onclick="filterMenu('other')"
+                    class="menu-tab px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-white dark:bg-coffee-900 border border-coffee-200 dark:border-coffee-800 hover:border-coffee-400"
+                    data-category="other" data-i18n="cat_other">Other</button>
+            </div>
+
+            <!-- Menu Grid -->
+            <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Populated dynamically by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span
+                    class="text-xs uppercase tracking-widest text-coffee-600 dark:text-coffee-400 font-semibold mb-3 block"
+                    data-i18n="reviews_tag">Testimonials</span>
+                <h2 class="font-editorial text-3xl sm:text-4xl font-bold mb-4" data-i18n="reviews_title">Loved by Our
+                    Guests</h2>
+                <div class="flex items-center justify-center gap-2 text-amber-500 text-lg mb-2">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="font-editorial font-bold text-coffee-900 dark:text-coffee-100 ml-2">4.8 / 5</span>
+                </div>
+                <p class="text-xs uppercase tracking-wider opacity-70" data-i18n="reviews_count">Based on 73 verified
+                    reviews</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review Card 1 -->
+                <div
+                    class="bg-white dark:bg-coffee-900 p-8 rounded-3xl shadow-sm border border-coffee-200/60 dark:border-coffee-800/60 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-500 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-sm opacity-80 leading-relaxed italic mb-6" data-i18n="review_1_text">“The
+                            absolute best cappuccino in Tashkent! The atmosphere is so cozy and calming, perfect for
+                            evening work or chatting with friends.”</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-coffee-100 dark:border-coffee-800">
+                        <div
+                            class="w-10 h-10 rounded-full bg-coffee-200 dark:bg-coffee-800 flex items-center justify-center font-bold text-xs">
+                            AK
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sm">Aziz Karimov</div>
+                            <div class="text-[11px] opacity-60" data-i18n="review_verified">Verified Guest</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div
+                    class="bg-white dark:bg-coffee-900 p-8 rounded-3xl shadow-sm border border-coffee-200/60 dark:border-coffee-800/60 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-500 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-sm opacity-80 leading-relaxed italic mb-6" data-i18n="review_2_text">“Amazing
+                            desserts and pastries, and they are open until midnight which is wonderful. Very
+                            professional baristas and peaceful vibe.”</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-coffee-100 dark:border-coffee-800">
+                        <div
+                            class="w-10 h-10 rounded-full bg-coffee-200 dark:bg-coffee-800 flex items-center justify-center font-bold text-xs">
+                            DS
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sm">Diana S.</div>
+                            <div class="text-[11px] opacity-60" data-i18n="review_verified">Verified Guest</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div
+                    class="bg-white dark:bg-coffee-900 p-8 rounded-3xl shadow-sm border border-coffee-200/60 dark:border-coffee-800/60 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-500 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-sm opacity-80 leading-relaxed italic mb-6" data-i18n="review_3_text">“Clean,
+                            modern, and youthful aesthetic. Their flat white is consistently top-tier. A hidden gem near
+                            Karatash!”</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-coffee-100 dark:border-coffee-800">
+                        <div
+                            class="w-10 h-10 rounded-full bg-coffee-200 dark:bg-coffee-800 flex items-center justify-center font-bold text-xs">
+                            UT
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sm">Umid Tursunov</div>
+                            <div class="text-[11px] opacity-60" data-i18n="review_verified">Verified Guest</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery"
+        class="py-24 bg-coffee-100/40 dark:bg-coffee-900/20 border-t border-coffee-200/50 dark:border-coffee-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span
+                    class="text-xs uppercase tracking-widest text-coffee-600 dark:text-coffee-400 font-semibold mb-3 block"
+                    data-i18n="gallery_tag">Visual Moments</span>
+                <h2 class="font-editorial text-3xl sm:text-4xl font-bold" data-i18n="gallery_title">Atmosphere & Craft
+                </h2>
+            </div>
+
+            <!-- Masonry Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]" id="gallery-grid">
+                <!-- Dynamically populated or rendered via HTML -->
+                <div class="rounded-3xl overflow-hidden shadow-md group relative cursor-pointer"
+                    onclick="openLightbox(0)">
+                    <img src="https://avatars.mds.yandex.net/get-altay/15182949/2a00000194c35d914d1baa21324fce9e4db7/XXXL"
+                        alt="Espresso cup"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        onerror="this.src='https://placehold.co/600x600/3A291D/F5EBE0?text=Coffee'">
+                    <div
+                        class="absolute inset-0 bg-coffee-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-solid fa-magnifying-glass-plus text-xl"></i>
+                    </div>
+                </div>
+                <div class="rounded-3xl overflow-hidden shadow-md group relative cursor-pointer row-span-2"
+                    onclick="openLightbox(1)">
+                    <img src="https://avatars.mds.yandex.net/get-altay/15037629/2a00000194c35d91ab250ae72e6ead9be709/XXXL"
+                        alt="Pour over coffee"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        onerror="this.src='https://placehold.co/600x800/3A291D/F5EBE0?text=Brew'">
+                    <div
+                        class="absolute inset-0 bg-coffee-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-solid fa-magnifying-glass-plus text-xl"></i>
+                    </div>
+                </div>
+                <div class="rounded-3xl overflow-hidden shadow-md group relative cursor-pointer"
+                    onclick="openLightbox(2)">
+                    <img src="https://avatars.mds.yandex.net/get-altay/15294995/2a000001994e4b111af440db52496b1a55ac/XXXL"
+                        alt="Cozy coffee shop table"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        onerror="this.src='https://placehold.co/600x600/3A291D/F5EBE0?text=Shop'">
+                    <div
+                        class="absolute inset-0 bg-coffee-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-solid fa-magnifying-glass-plus text-xl"></i>
+                    </div>
+                </div>
+                <div class="rounded-3xl overflow-hidden shadow-md group relative cursor-pointer"
+                    onclick="openLightbox(3)">
+                    <img src="https://avatars.mds.yandex.net/get-altay/14306621/2a000001928c43d5cb8632ae978908c5ec89/XXXL"
+                        alt="Fresh croissants and pastries"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        onerror="this.src='https://placehold.co/600x600/3A291D/F5EBE0?text=Pastry'">
+                    <div
+                        class="absolute inset-0 bg-coffee-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-solid fa-magnifying-glass-plus text-xl"></i>
+                    </div>
+                </div>
+                <div class="rounded-3xl overflow-hidden shadow-md group relative cursor-pointer row-span-2"
+                    onclick="openLightbox(4)">
+                    <img src="https://avatars.mds.yandex.net/get-altay/14296560/2a0000019492de6b37ddc91299c701cb13d3/XXXL"
+                        alt="Latte art preparation"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        onerror="this.src='https://placehold.co/600x800/3A291D/F5EBE0?text=LatteArt'">
+                    <div
+                        class="absolute inset-0 bg-coffee-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-solid fa-magnifying-glass-plus text-xl"></i>
+                    </div>
+                </div>
+                <div class="rounded-3xl overflow-hidden shadow-md group relative cursor-pointer"
+                    onclick="openLightbox(5)">
+                    <img src="https://avatars.mds.yandex.net/get-altay/10228783/2a000001928c44c93af8c12619190550cb56/XXXL   "
+                        alt="Delicious cake dessert"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        onerror="this.src='https://placehold.co/600x600/3A291D/F5EBE0?text=Cake'">
+                    <div
+                        class="absolute inset-0 bg-coffee-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-solid fa-magnifying-glass-plus text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section id="location" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 flex flex-col items-start">
+                    <span
+                        class="text-xs uppercase tracking-widest text-coffee-600 dark:text-coffee-400 font-semibold mb-3"
+                        data-i18n="loc_tag">Find Us</span>
+                    <h2 class="font-editorial text-3xl sm:text-4xl font-bold mb-6" data-i18n="loc_title">Visit Space
+                        Coffee</h2>
+                    <p class="text-sm opacity-80 leading-relaxed mb-8" data-i18n="loc_desc">
+                        Conveniently located in the center of Tashkent. Drop by for your daily specialty brew or a
+                        relaxing evening dessert.
+                    </p>
+
+                    <div class="space-y-6 w-full mb-8">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-coffee-100 dark:bg-coffee-800 text-coffee-700 dark:text-coffee-300 flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-sm" data-i18n="loc_address_title">Address</h4>
+                                <p class="text-sm opacity-75 mt-0.5">Tashkent, Karatash massif, 66, 100004, Uzbekistan
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-coffee-100 dark:bg-coffee-800 text-coffee-700 dark:text-coffee-300 flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-sm" data-i18n="loc_phone_title">Phone</h4>
+                                <a href="tel:+998990995535"
+                                    class="text-sm opacity-75 mt-0.5 hover:text-coffee-500 transition-colors">+998 99
+                                    099 55 35</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-coffee-100 dark:bg-coffee-800 text-coffee-700 dark:text-coffee-300 flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-regular fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-sm" data-i18n="loc_hours_title">Working Hours</h4>
+                                <p class="text-sm opacity-75 mt-0.5" data-i18n="loc_hours_val">Daily until 00:00
+                                    (Midnight)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://maps.google.com/?q=Karatash+66+Tashkent" target="_blank" rel="noopener noreferrer"
+                        class="px-8 py-4 rounded-full bg-coffee-800 hover:bg-coffee-700 dark:bg-coffee-100 dark:hover:bg-white dark:text-coffee-900 text-coffee-50 font-semibold text-sm transition-all shadow-md flex items-center gap-2">
+                        <i class="fa-solid fa-diamond-turn-right"></i>
+                        <span data-i18n="loc_btn_directions">Get Directions</span>
+                    </a>
+                </div>
+
+                <!-- Map Placeholder -->
+                <div class="lg:col-span-7">
+                    <div
+                        class="rounded-3xl overflow-hidden shadow-xl border-4 border-white dark:border-coffee-900 relative aspect-[16/10] bg-coffee-200 dark:bg-coffee-900 flex flex-col items-center justify-center text-center p-8">
+                        <div
+                            class="absolute inset-0 opacity-40 bg-[radial-gradient(#967259_1px,transparent_1px)] [background-size:20px_20px]">
+                        </div>
+                        <div class="relative z-10 flex flex-col items-center">
+                            <div
+                                class="w-16 h-16 rounded-full bg-coffee-800 text-white dark:bg-coffee-100 dark:text-coffee-900 flex items-center justify-center text-2xl mb-4 shadow-lg animate-bounce">
+                                <i class="fa-solid fa-mug-hot"></i>
+                            </div>
+                            <h3 class="font-editorial text-2xl font-bold mb-2">Space Coffee Tashkent</h3>
+                            <p class="text-sm opacity-75 max-w-sm mb-6">Karatash massif, 66, Tashkent, Uzbekistan</p>
+                            <a href="https://maps.google.com/?q=Karatash+66+Tashkent" target="_blank"
+                                rel="noopener noreferrer"
+                                class="px-6 py-3 rounded-full bg-white dark:bg-coffee-800 text-coffee-900 dark:text-coffee-100 text-xs font-semibold shadow-md hover:bg-coffee-50 transition-colors">
+                                <i class="fa-solid fa-map-location-dot mr-2"></i> <span data-i18n="map_open_google">Open
+                                    in Google Maps</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Grid Section -->
+    <section
+        class="py-20 bg-coffee-100/30 dark:bg-coffee-900/10 border-t border-coffee-200/50 dark:border-coffee-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span
+                class="text-xs uppercase tracking-widest text-coffee-600 dark:text-coffee-400 font-semibold mb-3 block"
+                data-i18n="ig_tag">Social Feed</span>
+            <h2 class="font-editorial text-3xl font-bold mb-4" data-i18n="ig_title">Follow Space Coffee</h2>
+            <p class="text-sm opacity-75 mb-10 max-w-md mx-auto" data-i18n="ig_subtitle">Tag your moments with our
+                specialty brews and delicious desserts.</p>
+
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mb-10">
+                <div class="rounded-2xl overflow-hidden aspect-square shadow-sm group relative">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=400&q=80"
+                        alt="Instagram post"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        onerror="this.src='https://placehold.co/400x400/3A291D/F5EBE0?text=IG'">
+                </div>
+                <div class="rounded-2xl overflow-hidden aspect-square shadow-sm group relative">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=400&q=80"
+                        alt="Instagram post"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        onerror="this.src='https://placehold.co/400x400/3A291D/F5EBE0?text=IG'">
+                </div>
+                <div class="rounded-2xl overflow-hidden aspect-square shadow-sm group relative">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80"
+                        alt="Instagram post"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        onerror="this.src='https://placehold.co/400x400/3A291D/F5EBE0?text=IG'">
+                </div>
+                <div class="rounded-2xl overflow-hidden aspect-square shadow-sm group relative">
+                    <img src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?auto=format&fit=crop&w=400&q=80"
+                        alt="Instagram post"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        onerror="this.src='https://placehold.co/400x400/3A291D/F5EBE0?text=IG'">
+                </div>
+                <div class="rounded-2xl overflow-hidden aspect-square shadow-sm group relative">
+                    <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&w=400&q=80"
+                        alt="Instagram post"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        onerror="this.src='https://placehold.co/400x400/3A291D/F5EBE0?text=IG'">
+                </div>
+                <div class="rounded-2xl overflow-hidden aspect-square shadow-sm group relative">
+                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=400&q=80"
+                        alt="Instagram post"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        onerror="this.src='https://placehold.co/400x400/3A291D/F5EBE0?text=IG'">
+                </div>
+            </div>
+
+            <a href="https://www.instagram.com/spacecoffee_uz/?hl=en" onclick="showToast('')"
+                class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-coffee-300 dark:border-coffee-700 hover:border-coffee-500 text-xs font-semibold uppercase tracking-wider transition-all">
+                <i class="fa-brands fa-instagram text-base"></i>
+                <span data-i18n="ig_btn">Follow us on Instagram</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-24 bg-coffee-800 text-coffee-50 dark:bg-coffee-900 relative overflow-hidden">
+        <div
+            class="absolute inset-0 opacity-10 bg-[radial-gradient(#F5EBE0_1px,transparent_1px)] [background-size:24px_24px]">
+        </div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="font-editorial text-4xl sm:text-6xl font-bold mb-6" data-i18n="final_title">See you at Space
+                Coffee?</h2>
+            <p class="text-lg opacity-80 max-w-xl mx-auto mb-10 font-light" data-i18n="final_subtitle">
+                Stop by Karatash 66 in Tashkent for an unforgettable specialty coffee experience.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="#menu"
+                    class="px-8 py-4 rounded-full bg-coffee-50 text-coffee-900 hover:bg-coffee-100 font-semibold text-sm transition-all shadow-lg"
+                    data-i18n="hero_cta_menu">View Menu</a>
+                <a href="#location"
+                    class="px-8 py-4 rounded-full border border-coffee-50/40 hover:border-coffee-50 font-semibold text-sm transition-all"
+                    data-i18n="hero_cta_directions">Get Directions</a>
+                <a href="tel:+998990995535"
+                    class="px-8 py-4 rounded-full border border-coffee-50/40 hover:border-coffee-50 font-semibold text-sm transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-phone"></i>
+                    <span data-i18n="final_call">Call Us</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 border-t border-coffee-200/50 dark:border-coffee-800/50 bg-coffee-50 dark:bg-coffee-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div
+                            class="w-8 h-8 rounded-full bg-coffee-800 dark:bg-coffee-200 flex items-center justify-center text-coffee-50 dark:text-coffee-900">
+                            <i class="fa-solid fa-mug-hot text-xs"></i>
+                        </div>
+                        <span class="font-editorial font-bold">SPACE COFFEE</span>
+                    </div>
+                    <p class="text-xs opacity-70 leading-relaxed" data-i18n="footer_tagline">
+                        Quality coffee, delicious desserts and cozy moments in the heart of Tashkent.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-xs uppercase tracking-wider mb-4" data-i18n="footer_links">Navigation
+                    </h4>
+                    <ul class="space-y-2 text-xs opacity-75">
+                        <li><a href="#hero" class="hover:text-coffee-500 transition-colors"
+                                data-i18n="nav_home">Home</a></li>
+                        <li><a href="#about" class="hover:text-coffee-500 transition-colors"
+                                data-i18n="nav_about">About</a></li>
+                        <li><a href="#menu" class="hover:text-coffee-500 transition-colors"
+                                data-i18n="nav_menu">Menu</a></li>
+                        <li><a href="#reviews" class="hover:text-coffee-500 transition-colors"
+                                data-i18n="nav_reviews">Reviews</a></li>
+                        <li><a href="#location" class="hover:text-coffee-500 transition-colors"
+                                data-i18n="nav_location">Location</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-xs uppercase tracking-wider mb-4" data-i18n="footer_contact">Contact
+                    </h4>
+                    <ul class="space-y-2 text-xs opacity-75">
+                        <li>Karatash massif, 66, Tashkent</li>
+                        <li>+998 99 099 55 35</li>
+                        <li data-i18n="loc_hours_val">Daily until 00:00</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-xs uppercase tracking-wider mb-4" data-i18n="footer_legal">Information
+                    </h4>
+                    <p class="text-xs opacity-70 leading-relaxed" data-i18n="footer_info">
+                        Price range: 1–50,000 UZS per person. Rating: 4.8/5 from 73 reviews.
+                    </p>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-coffee-200/50 dark:border-coffee-800/50 flex flex-col sm:flex-row items-center justify-between text-xs opacity-60">
+                <p>&copy; 2026 Space Coffee Tashkent. All rights reserved.</p>
+                <p class="mt-2 sm:mt-0">Crafted with specialty care.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart / Checkout Side Panel Drawer -->
+    <div id="cart-drawer-backdrop"
+        class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div id="cart-drawer"
+            class="absolute right-0 top-0 bottom-0 w-full sm:w-[420px] bg-coffee-50 dark:bg-coffee-950 p-6 flex flex-col justify-between shadow-2xl transform translate-x-full transition-transform duration-300">
+            <!-- Cart Header -->
+            <div class="flex items-center justify-between pb-6 border-b border-coffee-200 dark:border-coffee-800">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-bag-shopping text-coffee-700 dark:text-coffee-300"></i>
+                    <h3 class="font-editorial text-xl font-bold" data-i18n="cart_title">Your Space Cart</h3>
+                </div>
+                <button id="cart-close-btn"
+                    class="w-9 h-9 rounded-full border border-coffee-200 dark:border-coffee-800 flex items-center justify-center hover:border-coffee-400">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Cart Body (Items or Empty State) -->
+            <div id="cart-body" class="flex-1 overflow-y-auto py-6 space-y-4">
+                <!-- Populated dynamically -->
+            </div>
+
+            <!-- Cart Footer (Subtotal & Checkout) -->
+            <div id="cart-footer" class="pt-6 border-t border-coffee-200 dark:border-coffee-800">
+                <div class="flex items-center justify-between mb-4 text-sm font-medium">
+                    <span data-i18n="cart_subtotal">Subtotal:</span>
+                    <span id="cart-subtotal-val" class="font-bold">0 UZS</span>
+                </div>
+                <button id="checkout-open-btn" onclick="openCheckout()"
+                    class="w-full py-4 rounded-full bg-coffee-800 hover:bg-coffee-700 dark:bg-coffee-100 dark:hover:bg-white dark:text-coffee-900 text-coffee-50 font-semibold text-sm transition-all shadow-md text-center"
+                    data-i18n="cart_checkout_btn">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal"
+        class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+        <div id="product-modal-content"
+            class="bg-white dark:bg-coffee-900 rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-coffee-200 dark:border-coffee-800 transform scale-95 transition-transform duration-300">
+            <!-- Dynamically populated -->
+        </div>
+    </div>
+
+    <!-- Checkout Modal / Step -->
+    <div id="checkout-modal"
+        class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+        <div id="checkout-modal-content"
+            class="bg-white dark:bg-coffee-900 rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-coffee-200 dark:border-coffee-800 p-6 sm:p-8 transform scale-95 transition-transform duration-300">
+            <div class="flex items-center justify-between pb-4 mb-6 border-b border-coffee-200 dark:border-coffee-800">
+                <h3 class="font-editorial text-xl font-bold" data-i18n="chk_title">Checkout Order</h3>
+                <button onclick="closeCheckout()"
+                    class="w-8 h-8 rounded-full border border-coffee-200 dark:border-coffee-800 flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="checkout-form" onsubmit="submitOrder(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider mb-1.5" data-i18n="chk_name">Full
+                        Name</label>
+                    <input type="text" id="chk-name-input"
+                        class="w-full px-4 py-3 rounded-2xl bg-coffee-50 dark:bg-coffee-950 border border-coffee-200 dark:border-coffee-800 text-sm focus:outline-none focus:border-coffee-500"
+                        placeholder="Aziz Karimov">
+                    <p id="error-name" class="text-xs text-red-500 mt-1 hidden" data-i18n="err_name">Please enter your
+                        name.</p>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider mb-1.5"
+                        data-i18n="chk_phone">Phone Number (UZ)</label>
+                    <input type="tel" id="chk-phone-input"
+                        class="w-full px-4 py-3 rounded-2xl bg-coffee-50 dark:bg-coffee-950 border border-coffee-200 dark:border-coffee-800 text-sm focus:outline-none focus:border-coffee-500"
+                        placeholder="+998 90 123 45 67">
+                    <p id="error-phone" class="text-xs text-red-500 mt-1 hidden" data-i18n="err_phone">Please enter a
+                        valid phone number.</p>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider mb-1.5"
+                        data-i18n="chk_type">Order Type</label>
+                    <select id="chk-type-select" onchange="handleOrderTypeChange()"
+                        class="w-full px-4 py-3 rounded-2xl bg-coffee-50 dark:bg-coffee-950 border border-coffee-200 dark:border-coffee-800 text-sm focus:outline-none focus:border-coffee-500">
+                        <option value="pickup" data-i18n="chk_pickup">Pickup at Karatash 66</option>
+                        <option value="delivery" data-i18n="chk_delivery">Delivery (Coming soon)</option>
+                    </select>
+                    <p id="delivery-notice" class="text-xs text-amber-600 mt-2 hidden font-medium"
+                        data-i18n="chk_delivery_notice">Delivery ordering will be available soon. Orders currently
+                        default to Pickup.</p>
+                </div>
+
+                <div class="pt-4">
+                    <button type="submit"
+                        class="w-full py-4 rounded-full bg-coffee-800 hover:bg-coffee-700 dark:bg-coffee-100 dark:hover:bg-white dark:text-coffee-900 text-coffee-50 font-semibold text-sm transition-all shadow-md text-center"
+                        data-i18n="chk_submit">
+                        Complete Order
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Order State Modal -->
+    <div id="success-modal"
+        class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+        <div
+            class="bg-white dark:bg-coffee-900 rounded-3xl max-w-md w-full p-8 text-center shadow-2xl border border-coffee-200 dark:border-coffee-800">
+            <div
+                class="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-600 flex items-center justify-center text-2xl mx-auto mb-4">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="font-editorial text-2xl font-bold mb-2" data-i18n="success_title">Thank you!</h3>
+            <p class="text-sm opacity-80 mb-6" data-i18n="success_desc">Your order has been received successfully. We
+                look forward to seeing you at Space Coffee!</p>
+            <button onclick="closeSuccessModal()"
+                class="px-8 py-3.5 rounded-full bg-coffee-800 text-coffee-50 dark:bg-coffee-100 dark:text-coffee-900 font-semibold text-xs uppercase tracking-wider"
+                data-i18n="success_close">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal"
+        class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+        <button onclick="closeLightbox()"
+            class="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors z-10">
+            <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+        <button onclick="prevLightbox()"
+            class="absolute left-4 sm:left-8 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors z-10">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button onclick="nextLightbox()"
+            class="absolute right-4 sm:right-8 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors z-10">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <div class="max-w-4xl max-h-[80vh] flex items-center justify-center">
+            <img id="lightbox-img" src="" alt="Gallery Lightbox"
+                class="max-h-[80vh] max-w-full rounded-2xl object-contain shadow-2xl">
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast"
+        class="fixed bottom-6 right-6 z-50 bg-coffee-900 text-coffee-50 dark:bg-coffee-100 dark:text-coffee-900 px-6 py-3 rounded-2xl shadow-2xl text-xs font-semibold flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+        <span id="toast-msg">Added to your space</span>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Translations Dictionary (UZ, EN, RU)
+        const translations = {
+            uz: {
+                nav_home: "Bosh sahifa",
+                nav_about: "Biz haqimizda",
+                nav_menu: "Menyu",
+                nav_reviews: "Sharhlar",
+                nav_gallery: "Galereya",
+                nav_location: "Manzil",
+                nav_cart: "Savatcha",
+                hero_status: "Har kuni 00:00 gacha ochiq",
+                hero_title_1: "Ajoyib kofe uchun",
+                hero_title_2: "Sizning makoningiz",
+                hero_subtitle: "Toshkent qoq markazida kofe, shirinliklar va unutilmas lahzalar.",
+                hero_cta_menu: "Menyuni ko'rish",
+                hero_cta_directions: "Yo'nalish olish",
+                stat_rating: "Sharhlar",
+                stat_beans: "Maxsus donlar",
+                stat_hours: "Tun yarmigacha",
+                hero_badge_art: "Hunarmandlik",
+                hero_badge_title: "Ishtiyoq bilan damlangan",
+                floating_location: "Manzil",
+                features_tag: "Tajriba",
+                features_title: "Nima uchun Space Coffee",
+                feat_1_title: "Maxsus kofe",
+                feat_1_desc: "Ajoyib lazzat profillari uchun aniqlik bilan tanlangan va mukammal qovurilgan donlar.",
+                feat_2_title: "Yangi shirinliklar",
+                feat_2_desc: "Kofeingizni to'ldirish uchun har kuni yangi pishirilgan qo'lbola tortlar va kruassanlar.",
+                feat_3_title: "Qulay muhit",
+                feat_3_desc: "Ishlash, suhbatlashish yoki tinch dam olish uchun mo'ljallangan iliq yorug'lik va shinam muhit.",
+                feat_4_title: "Yarim kechagacha ochiq",
+                feat_4_desc: "Toshkentdagi kechki kofe ishtahasi uchun har kuni 00:00 gacha ochiq maskaningiz.",
+                about_tag: "Bizning tariximiz",
+                about_title: "Toshkent kofesevarlari uchun yaratilgan",
+                about_desc_1: "Ajoyib kofe madaniyatiga bo'lgan chuqur ishtiyoq bilan tashkil etilgan Space Coffee Toshkentning gavjum markazidagi maskandir.",
+                about_desc_2: "Do'stlar bilan uchrashish, kitob o'qish yoki tongi espressoni tatib ko'rish uchun Karatash 66 dagi eshiklarimiz doimo ochiq.",
+                about_stat_reviews: "Besh yulduzli sharhlar",
+                about_stat_open: "Har kuni ochiq",
+                menu_tag: "Takliflarimiz",
+                menu_title: "Menyuni kashf eting",
+                menu_subtitle: "Maxsus kofe ichimliklari, tansiq choylar va hunarmandlik pishiriqlarini kashf eting.",
+                cat_all: "Barchasi",
+                cat_coffee: "Kofe",
+                cat_cold: "Sovuq kofe",
+                cat_tea: "Choy",
+                cat_desserts: "Shirinliklar",
+                cat_pastries: "Pishiriqlar",
+                cat_other: "Boshqa",
+                reviews_tag: "Tafsilotlar",
+                reviews_title: "Mehmonlarimiz e'tirofi",
+                reviews_count: "73 ta tasdiqlangan sharhlar asosida",
+                review_1_text: "“Toshkentdagi eng zo'r kapuchino! Atmosfera juda shinam va sokin, kechki ish yoki suhbatlar uchun ideal.”",
+                review_2_text: "“Ajoyib shirinliklar va pishiriqlar, ustiga ustak yarim kechagacha ochiqligi juda yoqimli. Professional baristalar!”",
+                review_3_text: "“Toza, zamonaviy va yoshlarga mos dizayn. Flat white har doim yuqori darajada.”",
+                review_verified: "Tasdiqlangan mehmon",
+                gallery_tag: "Vizual lahzalar",
+                gallery_title: "Atmosfera va hunar",
+                loc_tag: "Bizni toping",
+                loc_title: "Space Coffee ga tashrif buyuring",
+                loc_desc: "Toshkent markazida qulay joylashgan. Kunlik maxsus kofengiz yoki shirinligingiz uchun keling.",
+                loc_address_title: "Manzil",
+                loc_phone_title: "Telefon",
+                loc_hours_title: "Ish vaqti",
+                loc_hours_val: "Har kuni 00:00 gacha",
+                loc_btn_directions: "Yo'nalish olish",
+                map_open_google: "Google xaritada ochish",
+                ig_tag: "Ijtimoiy tarmoq",
+                ig_title: "Space Coffee ni kuzatib boring",
+                ig_subtitle: "Maxsus kofelarimiz va shirinliklarimizdagi lahzalarni biz bilan ulashing.",
+                ig_btn: "Instagramda kuzatish",
+                final_title: "Space Coffee da ko'rishguncha?",
+                final_subtitle: "Unutilmas kofe tajribasi uchun Toshkent, Qoratosh 66 ga tashrif buyuring.",
+                final_call: "Qo'ng'iroq qilish",
+                footer_tagline: "Sifatli kofe, mazali shirinliklar va shinam lahzalar.",
+                footer_links: "Navigatsiya",
+                footer_contact: "Bog'lanish",
+                footer_info: "Ma'lumot",
+                cart_title: "Savatchangiz",
+                cart_subtotal: "Jami:",
+                cart_checkout_btn: "Buyurtma berishga o'tish",
+                cart_empty: "Savatchangiz bo'sh.",
+                cart_explore: "Menyuni ko'rish",
+                chk_title: "Buyurtmani rasmiylashtirish",
+                chk_name: "Ism va familiya",
+                chk_phone: "Telefon raqami (O'zbekiston)",
+                chk_type: "Buyurtma turi",
+                chk_pickup: "Qoratosh 66 da olib ketish",
+                chk_delivery: "Yetkazib berish (Tez kunda)",
+                chk_delivery_notice: "Yetkazib berish xizmati tez kunda ishga tushadi. Hozircha buyurtmalar olib ketish uchun qabul qilinadi.",
+                chk_submit: "Buyurtmani tasdiqlash",
+                err_name: "Iltimos, ismingizni kiriting.",
+                err_phone: "Iltimos, to'g'ri telefon raqamini kiriting.",
+                success_title: "Rahmat!",
+                success_desc: "Buyurtmangiz muvaffaqiyatli qabul qilindi. Sizni Space Coffee da kutib qolamiz!",
+                success_close: "Yopish",
+                toast_added: "Savatchaga qo'shildi",
+                modal_add: "Savatchaga qo'shish"
+            },
+            en: {
+                nav_home: "Home",
+                nav_about: "About",
+                nav_menu: "Menu",
+                nav_reviews: "Reviews",
+                nav_gallery: "Gallery",
+                nav_location: "Location",
+                nav_cart: "Cart",
+                hero_status: "Open daily until 00:00",
+                hero_title_1: "Your Space for",
+                hero_title_2: "Great Coffee",
+                hero_subtitle: "Coffee, desserts and good moments in the heart of Tashkent.",
+                hero_cta_menu: "View Menu",
+                hero_cta_directions: "Get Directions",
+                stat_rating: "Reviews",
+                stat_beans: "Specialty Beans",
+                stat_hours: "Midnight Close",
+                hero_badge_art: "Artisanal Craft",
+                hero_badge_title: "Brewed with passion",
+                floating_location: "Location",
+                features_tag: "The Experience",
+                features_title: "Why Space Coffee",
+                feat_1_title: "Specialty Coffee",
+                feat_1_desc: "Carefully sourced beans roasted to perfection, extracted with precision for exquisite flavor profiles.",
+                feat_2_title: "Fresh Desserts",
+                feat_2_desc: "Handcrafted cakes, crispy croissants, and sweet treats baked fresh daily to complement your brew.",
+                feat_3_title: "Cozy Atmosphere",
+                feat_3_desc: "Warm lighting, comfortable seating, and a serene ambiance designed for work, talk, or quiet moments.",
+                feat_4_title: "Open Until Midnight",
+                feat_4_desc: "Your welcoming evening sanctuary in Tashkent, open daily until 00:00 for late-night coffee cravings.",
+                about_tag: "Our Story",
+                about_title: "Crafted for coffee lovers in Tashkent",
+                about_desc_1: "Founded with a deep passion for exceptional coffee culture, Space Coffee was created to be a sanctuary in the bustling heart of Tashkent.",
+                about_desc_2: "Whether you are meeting friends, seeking a quiet corner to read, or grabbing a swift morning espresso, our doors at Karatash 66 are open.",
+                about_stat_reviews: "Five Star Reviews",
+                about_stat_open: "Open Daily",
+                menu_tag: "Our Offerings",
+                menu_title: "Explore Our Menu",
+                menu_subtitle: "Discover hand-crafted coffee drinks, specialty teas, and artisanal pastries.",
+                cat_all: "All",
+                cat_coffee: "Coffee",
+                cat_cold: "Cold Coffee",
+                cat_tea: "Tea",
+                cat_desserts: "Desserts",
+                cat_pastries: "Pastries",
+                cat_other: "Other",
+                reviews_tag: "Testimonials",
+                reviews_title: "Loved by Our Guests",
+                reviews_count: "Based on 73 verified reviews",
+                review_1_text: "“The absolute best cappuccino in Tashkent! The atmosphere is so cozy and calming, perfect for evening work or chatting with friends.”",
+                review_2_text: "“Amazing desserts and pastries, and they are open until midnight which is wonderful. Very professional baristas and peaceful vibe.”",
+                review_3_text: "“Clean, modern, and youthful aesthetic. Their flat white is consistently top-tier. A hidden gem near Karatash!”",
+                review_verified: "Verified Guest",
+                gallery_tag: "Visual Moments",
+                gallery_title: "Atmosphere & Craft",
+                loc_tag: "Find Us",
+                loc_title: "Visit Space Coffee",
+                loc_desc: "Conveniently located in the center of Tashkent. Drop by for your daily specialty brew or a relaxing evening dessert.",
+                loc_address_title: "Address",
+                loc_phone_title: "Phone",
+                loc_hours_title: "Working Hours",
+                loc_hours_val: "Daily until 00:00 (Midnight)",
+                loc_btn_directions: "Get Directions",
+                map_open_google: "Open in Google Maps",
+                ig_tag: "Social Feed",
+                ig_title: "Follow Space Coffee",
+                ig_subtitle: "Tag your moments with our specialty brews and delicious desserts.",
+                ig_btn: "Follow us on Instagram",
+                final_title: "See you at Space Coffee?",
+                final_subtitle: "Stop by Karatash 66 in Tashkent for an unforgettable specialty coffee experience.",
+                final_call: "Call Us",
+                footer_tagline: "Quality coffee, delicious desserts and cozy moments in the heart of Tashkent.",
+                footer_links: "Navigation",
+                footer_contact: "Contact",
+                footer_info: "Information",
+                cart_title: "Your Space Cart",
+                cart_subtotal: "Subtotal:",
+                cart_checkout_btn: "Proceed to Checkout",
+                cart_empty: "Your space is empty.",
+                cart_explore: "Explore Menu",
+                chk_title: "Checkout Order",
+                chk_name: "Full Name",
+                chk_phone: "Phone Number (Uzbekistan)",
+                chk_type: "Order Type",
+                chk_pickup: "Pickup at Karatash 66",
+                chk_delivery: "Delivery (Coming soon)",
+                chk_delivery_notice: "Delivery ordering will be available soon. Orders currently default to Pickup.",
+                chk_submit: "Complete Order",
+                err_name: "Please enter your name.",
+                err_phone: "Please enter a valid phone number.",
+                success_title: "Thank you!",
+                success_desc: "Your order has been received successfully. We look forward to seeing you at Space Coffee!",
+                success_close: "Close",
+                toast_added: "Added to your space",
+                modal_add: "Add to Cart"
+            },
+            ru: {
+                nav_home: "Главная",
+                nav_about: "О нас",
+                nav_menu: "Меню",
+                nav_reviews: "Отзывы",
+                nav_gallery: "Галерея",
+                nav_location: "Контакты",
+                nav_cart: "Корзина",
+                hero_status: "Открыто ежедневно до 00:00",
+                hero_title_1: "Ваше пространство для",
+                hero_title_2: "Великолепного кофе",
+                hero_subtitle: "Кофе, десерты и прекрасные моменты в самом сердце Ташкента.",
+                hero_cta_menu: "Смотреть меню",
+                hero_cta_directions: "Как проехать",
+                stat_rating: "Отзывы",
+                stat_beans: "Спешелти зерна",
+                stat_hours: "До полуночи",
+                hero_badge_art: "Ремесло",
+                hero_badge_title: "Приготовлено с душой",
+                floating_location: "Адрес",
+                features_tag: "Атмосфера",
+                features_title: "Почему Space Coffee",
+                feat_1_title: "Спешелти кофе",
+                feat_1_desc: "Тщательно отобранные зерна обжарены до совершенства для изысканного вкуса.",
+                feat_2_title: "Свежие десерты",
+                feat_2_desc: "Авторские торты, хрустящие круассаны и сладости, выпекаемые ежедневно.",
+                feat_3_title: "Уютная атмосфера",
+                feat_3_desc: "Теплый свет, комфортная мебель и умиротворяющая обстановка для работы и отдыха.",
+                feat_4_title: "Открыты до полуночи",
+                feat_4_desc: "Ваше гостеприимное вечернее убежище в Ташкенте, открытое ежедневно до 00:00.",
+                about_tag: "Наша история",
+                about_title: "Создано для любителей кофе в Ташкенте",
+                about_desc_1: "Основанная с глубокой страстью к кофейной культуре, кофейня Space Coffee стала тихим убежищем в оживленном центре Ташкента.",
+                about_desc_2: "Будь то встреча с друзьями, уютный уголок для чтения или утренний эспрессо — наши двери на Каракамыш / Караташ 66 открыты.",
+                about_stat_reviews: "Пятизвездочные отзывы",
+                about_stat_open: "Ежедневно",
+                menu_tag: "Наш ассортимент",
+                menu_title: "Исследуйте меню",
+                menu_subtitle: "Откройте для себя спешелти напитки, элитные чаи и ремесленные десерты.",
+                cat_all: "Все",
+                cat_coffee: "Кофе",
+                cat_cold: "Холодный кофе",
+                cat_tea: "Чай",
+                cat_desserts: "Десерты",
+                cat_pastries: "Выпечка",
+                cat_other: "Другое",
+                reviews_tag: "Отзывы",
+                reviews_title: "Любимо нашими гостями",
+                reviews_count: "На основе 73 проверенных отзывов",
+                review_1_text: "“Лучший капучино в Ташкенте! Атмосфера уютная и успокаивающая, идеально для вечерней работы или общения.”",
+                review_2_text: "“Потрясающие десерты и выпечка, а то что они открыты до полуночи — просто подарок. Профессиональные бариста.”",
+                review_3_text: "“Чистый, современный и стильный интерьер. Флэт уайт стабильно на высоте. Скрытая жемчужина!”",
+                review_verified: "Проверенный гость",
+                gallery_tag: "Визуальные моменты",
+                gallery_title: "Атмосфера и мастерство",
+                loc_tag: "Как нас найти",
+                loc_title: "Посетите Space Coffee",
+                loc_desc: "Удобно расположена в центре Ташкента. Заходите за любимым спешелти кофе и вечерним десертом.",
+                loc_address_title: "Адрес",
+                loc_phone_title: "Телефон",
+                loc_hours_title: "Часы работы",
+                loc_hours_val: "Ежедневно до 00:00",
+                loc_btn_directions: "Проложить маршрут",
+                map_open_google: "Открыть в Google Карты",
+                ig_tag: "Социальные сети",
+                ig_title: "Следите за Space Coffee",
+                ig_subtitle: "Делитесь своими моментами с нашими напитками и десертами.",
+                ig_btn: "Подписаться в Instagram",
+                final_title: "Увидимся в Space Coffee?",
+                final_subtitle: "Ждем вас по адресу Ташкент, массив Караташ, 66 для незабываемого кофейного опыта.",
+                final_call: "Позвонить",
+                footer_tagline: "Качественный кофе, вкусные десерты и уютные моменты в сердце Ташкента.",
+                footer_links: "Навигация",
+                footer_contact: "Контакты",
+                footer_info: "Информация",
+                cart_title: "Ваша корзина",
+                cart_subtotal: "Итого:",
+                cart_checkout_btn: "Оформить заказ",
+                cart_empty: "Ваше пространство пусто.",
+                cart_explore: "В каталог меню",
+                chk_title: "Оформление заказа",
+                chk_name: "Имя и фамилия",
+                chk_phone: "Номер телефона (Узбекистан)",
+                chk_type: "Тип заказа",
+                chk_pickup: "Самовывоз с Караташ 66",
+                chk_delivery: "Доставка (Скоро)",
+                chk_delivery_notice: "Доставка будет доступна в ближайшее время. Заказы оформляются на самовывоз.",
+                chk_submit: "Подтвердить заказ",
+                err_name: "Пожалуйста, введите ваше имя.",
+                err_phone: "Пожалуйста, введите корректный номер телефона.",
+                success_title: "Спасибо!",
+                success_desc: "Ваш заказ успешно принят. Ждем вас в Space Coffee!",
+                success_close: "Закрыть",
+                toast_added: "Добавлено в ваше пространство",
+                modal_add: "В корзину"
+            }
+        };
+
+        let currentLang = 'uz';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('space_coffee_lang', lang);
+
+            // Update flag and code indicator
+            const flags = { uz: '🇺🇿', en: '🇬🇧', ru: '🇷🇺' };
+            document.getElementById('current-lang-flag').textContent = flags[lang];
+            document.getElementById('current-lang-code').textContent = lang.toUpperCase();
+            document.getElementById('lang-dropdown').classList.add('hidden');
+
+            // Apply translations across DOM
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Re-render menu to update product titles/descriptions
+            renderMenu(currentCategory);
+            renderCart();
+        }
+
+        // Menu Database with multilingual support
+        const menuItems = [
+            {
+                id: 1,
+                category: 'coffee',
+                name: { uz: 'Signature Espresso', en: 'Signature Espresso', ru: 'Фирменный эспрессо' },
+                desc: { uz: 'Boy lazzat va shokolad notalariga ega mukammal ekstraksiya.', en: 'Rich body with distinct chocolate notes and crema perfection.', ru: 'Насыщенный вкус с шоколадными нотками и идеальной крема.' },
+                price: 22000,
+                image: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 2,
+                category: 'coffee',
+                name: { uz: 'Velvet Cappuccino', en: 'Velvet Cappuccino', ru: 'Бархатный капучино' },
+                desc: { uz: 'Ipakdek yumshoq sut ko\'pigi va ikki karrali espresso uyg\'unligi.', en: 'Equal parts espresso, steamed milk, and velvety microfoam.', ru: 'Идеальный баланс эспрессо, горячего молока и микропены.' },
+                price: 28000,
+                image: 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 3,
+                category: 'coffee',
+                name: { uz: 'Flat White', en: 'Flat White', ru: 'Флэт Уайт' },
+                desc: { uz: 'Ikki karrali ristretto va mayin teksturali issiq sut.', en: 'Double shot of ristretto combined with velvety microfoam milk.', ru: 'Двойной ристретто с нежным бархатным молоком.' },
+                price: 30000,
+                image: 'https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 4,
+                category: 'cold',
+                name: { uz: 'Iced Spanish Latte', en: 'Iced Spanish Latte', ru: 'Айс Испанский Латте' },
+                desc: { uz: 'Muz, maxsus shirin sut va mukammal espresso uyg\'unligi.', en: 'Refreshing cold brew with condensed milk and ice.', ru: 'Освежающий холодный латте со сгущенным молоком и льдом.' },
+                price: 35000,
+                image: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 5,
+                category: 'cold',
+                name: { uz: 'Espresso Tonic', en: 'Espresso Tonic', ru: 'Эспрессо Тоник' },
+                desc: { uz: 'Sovuq tonik, sitrus va ikki karrali espresso kokteyli.', en: 'Crisp tonic water paired with citrus notes and bold espresso shot.', ru: 'Освежающий тоник с цитрусовыми нотками и эспрессо.' },
+                price: 32000,
+                image: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 6,
+                category: 'tea',
+                name: { uz: 'Imperial Green Tea', en: 'Imperial Green Tea', ru: 'Императорский зеленый чай' },
+                desc: { uz: 'Xushbo\'y va tetiklashtiruvchi tanlangan bargli yashil choy.', en: 'Delicate hand-rolled green tea leaves with floral notes.', ru: 'Изысканный листовой зеленый чай с цветочным ароматом.' },
+                price: 20000,
+                image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 7,
+                category: 'desserts',
+                name: { uz: 'San Sebastian Cheesecake', en: 'San Sebastian Cheesecake', ru: 'Чизкейк Сан-Себастьян' },
+                desc: { uz: 'Qaymoqli va og\'izda eriydigan mashhur kuydirilgan chizкейк.', en: 'Rich, flourless burnt Basque cheesecake with creamy center.', ru: 'Нежнейший баскский обожженный чизкейк с кремовой текстурой.' },
+                price: 45000,
+                image: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 8,
+                category: 'pastries',
+                name: { uz: 'Buttery French Croissant', en: 'Buttery French Croissant', ru: 'Французский круассан' },
+                desc: { uz: 'Fransuz sariyog\'ida tayyorlangan qatlamli, qarsildoq kruassan.', en: 'Flaky, golden brown layers made with authentic European butter.', ru: 'Хрустящий слоеный круассан на натуральном сливочном масле.' },
+                price: 24000,
+                image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 9,
+                category: 'other',
+                name: { uz: 'Hot Cocoa with Marshmallows', en: 'Hot Cocoa with Marshmallows', ru: 'Горячий шоколад с зефиром' },
+                desc: { uz: 'Haqiqiy shokolad va yumshoq marshmallow qatlamidan tayyorlangan.', en: 'Rich Belgian cocoa topped with fluffy marshmallows.', ru: 'Густой бельгийский горячий шоколад с воздушным зефиром.' },
+                price: 32000,
+                image: 'https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=600&q=80'
+            }
+        ];
+
+        let currentCategory = 'all';
+        let cart = [];
+
+        function filterMenu(category) {
+            currentCategory = category;
+            document.querySelectorAll('.menu-tab').forEach(btn => {
+                if (btn.getAttribute('data-category') === category) {
+                    btn.className = 'menu-tab active px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-coffee-800 text-coffee-50 dark:bg-coffee-100 dark:text-coffee-900 shadow-sm';
+                } else {
+                    btn.className = 'menu-tab px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-white dark:bg-coffee-900 border border-coffee-200 dark:border-coffee-800 hover:border-coffee-400';
+                }
+            });
+            renderMenu(category);
+        }
+
+        function renderMenu(category) {
+            const grid = document.getElementById('menu-grid');
+            grid.innerHTML = '';
+
+            const filtered = category === 'all' ? menuItems : menuItems.filter(i => i.category === category);
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-white dark:bg-coffee-900 rounded-3xl overflow-hidden shadow-sm border border-coffee-200/60 dark:border-coffee-800/60 flex flex-col justify-between group transition-all hover:shadow-md';
+                card.innerHTML = `
+                    <div class="relative aspect-[4/3] overflow-hidden cursor-pointer" onclick="openProductModal(${item.id})">
+                        <img src="${item.image}" alt="${item.name[currentLang]}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x450/3A291D/F5EBE0?text=Coffee'">
+                        <div class="absolute top-4 right-4 bg-white/90 dark:bg-coffee-900/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-coffee-900 dark:text-coffee-100 shadow-sm">
+                            ${item.price.toLocaleString()} UZS
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h3 class="font-editorial text-xl font-bold mb-2 cursor-pointer hover:text-coffee-500 transition-colors" onclick="openProductModal(${item.id})">${item.name[currentLang]}</h3>
+                            <p class="text-xs opacity-75 line-clamp-2 leading-relaxed mb-4">${item.desc[currentLang]}</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-coffee-100 dark:border-coffee-800">
+                            <span class="text-xs font-bold tracking-wider uppercase opacity-60">${item.category}</span>
+                            <button onclick="addToCart(${item.id})" class="px-4 py-2 rounded-full bg-coffee-100 hover:bg-coffee-200 dark:bg-coffee-800 dark:hover:bg-coffee-700 text-coffee-900 dark:text-coffee-100 text-xs font-semibold transition-all flex items-center gap-1.5">
+                                <i class="fa-solid fa-plus text-[10px]"></i>
+                                <span data-i18n="modal_add">${translations[currentLang].modal_add}</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Product Modal
+        function openProductModal(id) {
+            const item = menuItems.find(i => i.id === id);
+            if (!item) return;
+
+            const modal = document.getElementById('product-modal');
+            const content = document.getElementById('product-modal-content');
+
+            content.innerHTML = `
+                <div class="relative aspect-[16/10] overflow-hidden">
+                    <img src="${item.image}" alt="${item.name[currentLang]}" class="w-full h-full object-cover">
+                    <button onclick="closeProductModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition-colors">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="p-8">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold uppercase tracking-widest text-coffee-600 dark:text-coffee-400">${item.category}</span>
+                        <span class="font-editorial text-2xl font-bold">${item.price.toLocaleString()} UZS</span>
+                    </div>
+                    <h3 class="font-editorial text-2xl font-bold mb-3">${item.name[currentLang]}</h3>
+                    <p class="text-sm opacity-80 leading-relaxed mb-8">${item.desc[currentLang]}</p>
+
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center border border-coffee-200 dark:border-coffee-800 rounded-full px-4 py-2">
+                            <button onclick="adjustModalQty(-1)" class="w-6 h-6 flex items-center justify-center font-bold text-sm">-</button>
+                            <span id="modal-qty" class="w-8 text-center text-sm font-semibold">1</span>
+                            <button onclick="adjustModalQty(1)" class="w-6 h-6 flex items-center justify-center font-bold text-sm">+</button>
+                        </div>
+                        <button onclick="addModalToCart(${item.id})" class="flex-1 py-3.5 rounded-full bg-coffee-800 hover:bg-coffee-700 dark:bg-coffee-100 dark:hover:bg-white dark:text-coffee-900 text-coffee-50 font-semibold text-xs uppercase tracking-wider transition-all shadow-md text-center">
+                            ${translations[currentLang].modal_add}
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('#product-modal-content').classList.remove('scale-95');
+            modal.querySelector('#product-modal-content').classList.add('scale-100');
+        }
+
+        let modalQty = 1;
+        function adjustModalQty(val) {
+            modalQty = Math.max(1, modalQty + val);
+            const el = document.getElementById('modal-qty');
+            if (el) el.textContent = modalQty;
+        }
+
+        function closeProductModal() {
+            modalQty = 1;
+            const modal = document.getElementById('product-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('#product-modal-content').classList.add('scale-95');
+            modal.querySelector('#product-modal-content').classList.remove('scale-100');
+        }
+
+        function addModalToCart(id) {
+            const item = menuItems.find(i => i.id === id);
+            if (!item) return;
+
+            for (let i = 0; i < modalQty; i++) {
+                cart.push({ ...item });
+            }
+            updateCartCounter();
+            closeProductModal();
+            showToast(`${item.name[currentLang]} x${modalQty} - ${translations[currentLang].toast_added}`);
+            modalQty = 1;
+        }
+
+        function addToCart(id) {
+            const item = menuItems.find(i => i.id === id);
+            if (!item) return;
+
+            cart.push({ ...item });
+            updateCartCounter();
+            showToast(`${item.name[currentLang]} - ${translations[currentLang].toast_added}`);
+        }
+
+        function updateCartCounter() {
+            const counter = document.getElementById('cart-counter');
+            if (cart.length > 0) {
+                counter.textContent = cart.length;
+                counter.classList.remove('scale-0');
+                counter.classList.add('scale-100');
+            } else {
+                counter.classList.remove('scale-100');
+                counter.classList.add('scale-0');
+            }
+            renderCart();
+        }
+
+        function renderCart() {
+            const body = document.getElementById('cart-body');
+            const subtotalVal = document.getElementById('cart-subtotal-val');
+
+            if (cart.length === 0) {
+                body.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center p-6">
+                        <div class="w-16 h-16 rounded-full bg-coffee-200/50 dark:bg-coffee-900 text-coffee-500 flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </div>
+                        <h4 class="font-editorial text-lg font-bold mb-1" data-i18n="cart_empty">${translations[currentLang].cart_empty}</h4>
+                        <p class="text-xs opacity-60 mb-6">Explore our menu and add your favorite specialty coffee or desserts.</p>
+                        <button onclick="closeCart()" class="px-6 py-3 rounded-full bg-coffee-800 text-coffee-50 dark:bg-coffee-100 dark:text-coffee-900 text-xs font-semibold uppercase tracking-wider">
+                            ${translations[currentLang].cart_explore}
+                        </button>
+                    </div>
+                `;
+                subtotalVal.textContent = '0 UZS';
+                return;
+            }
+
+            body.innerHTML = '';
+            let total = 0;
+
+            // Group cart items by id
+            const grouped = {};
+            cart.forEach(item => {
+                if (!grouped[item.id]) {
+                    grouped[item.id] = { ...item, count: 0 };
+                }
+                grouped[item.id].count++;
+            });
+
+            Object.values(grouped).forEach(item => {
+                const itemTotal = item.price * item.count;
+                total += itemTotal;
+
+                const row = document.createElement('div');
+                row.className = 'flex items-center justify-between gap-4 p-4 rounded-2xl bg-white dark:bg-coffee-900 border border-coffee-200/60 dark:border-coffee-800/60';
+                row.innerHTML = `
+                    <img src="${item.image}" alt="${item.name[currentLang]}" class="w-14 h-14 rounded-xl object-cover">
+                    <div class="flex-1 min-w-0">
+                        <h4 class="font-semibold text-sm truncate">${item.name[currentLang]}</h4>
+                        <p class="text-xs text-coffee-600 dark:text-coffee-400 font-medium mt-0.5">${item.price.toLocaleString()} UZS</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="changeQty(${item.id}, -1)" class="w-7 h-7 rounded-full border border-coffee-200 dark:border-coffee-800 flex items-center justify-center text-xs font-bold">-</button>
+                        <span class="text-xs font-bold w-4 text-center">${item.count}</span>
+                        <button onclick="changeQty(${item.id}, 1)" class="w-7 h-7 rounded-full border border-coffee-200 dark:border-coffee-800 flex items-center justify-center text-xs font-bold">+</button>
+                    </div>
+                `;
+                body.appendChild(row);
+            });
+
+            subtotalVal.textContent = total.toLocaleString() + ' UZS';
+        }
+
+        function changeQty(id, delta) {
+            if (delta > 0) {
+                const item = menuItems.find(i => i.id === id);
+                if (item) cart.push({ ...item });
+            } else {
+                const index = cart.findIndex(i => i.id === id);
+                if (index > -1) cart.splice(index, 1);
+            }
+            updateCartCounter();
+        }
+
+        // Cart Drawer Toggles
+        const cartBtn = document.getElementById('cart-btn');
+        const cartBackdrop = document.getElementById('cart-drawer-backdrop');
+        const cartDrawer = document.getElementById('cart-drawer');
+        const cartCloseBtn = document.getElementById('cart-close-btn');
+
+        cartBtn.addEventListener('click', () => {
+            cartBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+            cartDrawer.classList.remove('translate-x-full');
+            renderCart();
+        });
+
+        cartCloseBtn.addEventListener('click', closeCart);
+        cartBackdrop.addEventListener('click', (e) => {
+            if (e.target === cartBackdrop) closeCart();
+        });
+
+        function closeCart() {
+            cartBackdrop.classList.add('opacity-0', 'pointer-events-none');
+            cartDrawer.classList.add('translate-x-full');
+        }
+
+        // Checkout Modal Logic
+        function openCheckout() {
+            if (cart.length === 0) return;
+            closeCart();
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('#checkout-modal-content').classList.remove('scale-95');
+            modal.querySelector('#checkout-modal-content').classList.add('scale-100');
+        }
+
+        function closeCheckout() {
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('#checkout-modal-content').classList.add('scale-95');
+            modal.querySelector('#checkout-modal-content').classList.remove('scale-100');
+        }
+
+        function handleOrderTypeChange() {
+            const select = document.getElementById('chk-type-select');
+            const notice = document.getElementById('delivery-notice');
+            if (select.value === 'delivery') {
+                notice.classList.remove('hidden');
+            } else {
+                notice.classList.add('hidden');
+            }
+        }
+
+        function submitOrder(e) {
+            e.preventDefault();
+            const nameInput = document.getElementById('chk-name-input');
+            const phoneInput = document.getElementById('chk-phone-input');
+            const errName = document.getElementById('error-name');
+            const errPhone = document.getElementById('error-phone');
+
+            let isValid = true;
+
+            if (!nameInput.value.trim()) {
+                errName.classList.remove('hidden');
+                isValid = false;
+            } else {
+                errName.classList.add('hidden');
+            }
+
+            // Simple UZ phone regex check (+998XXXXXXXXX or similar)
+            const phoneRegex = /^\+?998\s?\d{2}\s?\d{3}\s?\d{2}\s?\d{2}$/;
+            const cleanPhone = phoneInput.value.replace(/\s+/g, '');
+            if (!cleanPhone || cleanPhone.length < 9) {
+                errPhone.classList.remove('hidden');
+                isValid = false;
+            } else {
+                errPhone.classList.add('hidden');
+            }
+
+            if (!isValid) return;
+
+            // Success frontend workflow
+            closeCheckout();
+            cart = [];
+            updateCartCounter();
+            nameInput.value = '';
+            phoneInput.value = '';
+
+            const successModal = document.getElementById('success-modal');
+            successModal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeSuccessModal() {
+            const successModal = document.getElementById('success-modal');
+            successModal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // Lightbox Logic
+        const lightboxImages = [
+            'https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1559496417-e7f25cb247f3?auto=format&fit=crop&w=1200&q=80'
+        ];
+        let currentLightboxIndex = 0;
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            const modal = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            img.src = lightboxImages[index];
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function nextLightbox() {
+            currentLightboxIndex = (currentLightboxIndex + 1) % lightboxImages.length;
+            document.getElementById('lightbox-img').src = lightboxImages[currentLightboxIndex];
+        }
+
+        function prevLightbox() {
+            currentLightboxIndex = (currentLightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+            document.getElementById('lightbox-img').src = lightboxImages[currentLightboxIndex];
+        }
+
+        // Keyboard support for Lightbox
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+                closeCart();
+                closeProductModal();
+                closeCheckout();
+                closeSuccessModal();
+            } else if (e.key === 'ArrowRight') {
+                nextLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                prevLightbox();
+            }
+        });
+
+        // Toast Notification helper
+        let toastTimeout;
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.textContent = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Theme Toggle (Dark / Light mode)
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Check initial theme preference
+        const savedTheme = localStorage.getItem('space_coffee_theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('space_coffee_theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('space_coffee_theme', 'dark');
+            }
+        });
+
+        // Language Dropdown Toggle
+        const langMenuBtn = document.getElementById('lang-menu-btn');
+        const langDropdown = document.getElementById('lang-dropdown');
+
+        langMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('hidden');
+        });
+
+        window.addEventListener('click', () => {
+            langDropdown.classList.add('hidden');
+        });
+
+        // Mobile Menu Drawer Toggles
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+            mobileMenuDrawer.classList.remove('translate-x-full');
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            mobileMenuDrawer.classList.add('translate-x-full');
+        }
+
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) closeMobileMenu();
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Initialize on load
+        window.onload = function () {
+            const savedLang = localStorage.getItem('space_coffee_lang') || 'uz';
+            setLanguage(savedLang);
+        };
+    </script>
+</body>
+
+</html>
